@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var sldAge: UISlider!
     @IBOutlet weak var swtMarried: UISwitch!
+    var user : User!
     
     
     
@@ -46,6 +47,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func setMarried(_ sender: UISwitch) {
         lblMarried.text = swtMarried.isOn ? "Sì" : "No"
     }
+    
+    @IBAction func save(_ sender: UIButton) {
+        user = User.init(name: txvName.text!,
+                         age: Int(sldAge.value),
+                         married: swtMarried.isOn,
+                         sons: Int(self.SonsStepper.value));
+        
+        let alert = UIAlertController(title: "Dati inseriti", message: "Nome ", preferredStyle: UIAlertControllerStyle.actionSheet)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     
 
