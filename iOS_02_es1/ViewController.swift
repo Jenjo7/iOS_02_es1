@@ -18,7 +18,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var sldAge: UISlider!
     @IBOutlet weak var swtMarried: UISwitch!
+    @IBOutlet weak var lblSave: UILabel!
     var user : User!
+    
     
     
     
@@ -53,13 +55,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                          age: Int(sldAge.value),
                          married: swtMarried.isOn,
                          sons: Int(self.SonsStepper.value));
-        
-        let alert = UIAlertController(title: "Dati inseriti", message: "Nome ", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let str = """
+    Nome: \(user.name)
+    Età:  \(user.age.description)
+    Spostato: \(user.married.description)
+    Numero figli: \(user.sons)
+"""
+        let alert = UIAlertController(title: "Dati inseriti", message: str, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
             
         }))
         self.present(alert, animated: true, completion: nil)
-        
+        lblSave.text = str
     }
     
     
