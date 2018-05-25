@@ -56,11 +56,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                          married: swtMarried.isOn,
                          sons: Int(self.SonsStepper.value));
         let str = """
-    Nome: \(user.name)
-    Età:  \(user.age.description)
-    Spostato: \(user.married.description)
-    Numero figli: \(user.sons)
-"""
+            Nome: \(user.name)
+            Età:  \(user.age.description)
+            Spostato: \(user.married ? "Si" : "No")
+            Numero figli: \(user.sons)
+        """
         let alert = UIAlertController(title: "Dati inseriti", message: str, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
             
